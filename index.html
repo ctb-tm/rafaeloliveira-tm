@@ -5,54 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infográfico | Rafael Guimarães Oliveira</title>
     <style>
-        /* --- Configurações Globais e Gradiente --- */
+        /* --- Configurações Globais e Gradiente - NOVAS CORES AQUI --- */
         :root {
-            --purple: #6a3093;
-            --blue: #a044ff;
-            --lilac: #e3d2ff;
-            --white: #ffffff;
-            --dark-purple: #4c226a;
-            --text-dark: #333;
-            --text-light: #f8f9fa;
+            --light-pink-bg: #EFC7CF; /* Rosa Claro (Fundo) */
+            --white-unicorn: #FFF9F5; /* Branco (Unicórnio) */
+            --medium-pink: #F06BAE;   /* Rosa Médio (Casaco/Crina) */
+            --light-lilac: #CFB7F0;   /* Lilás Claro (Poltrona) */
+            --yellow-horn: #FFED96;   /* Amarelo (Chifre) */
+            --gray-tech: #B0B0B0;     /* Cinza (Notebook/Fones) */
+            --black-hoof: #222222;    /* Preto (Casco) */
+            --dark-pink-crina: #D94F99; /* Rosa Escuro (Crina) */
+
+            /* Ajuste para cores de texto/elementos que eram escuras/claras */
+            --text-main: var(--black-hoof); /* Texto principal mais escuro */
+            --text-accent: var(--medium-pink); /* Cor de destaque para títulos */
+            --text-light-alt: var(--white-unicorn); /* Texto claro sobre fundos escuros */
         }
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(180deg, var(--purple) 0%, var(--blue) 30%, var(--white) 60%);
-            color: var(--text-dark);
+            /* Gradiente de fundo ajustado para a nova paleta */
+            background: linear-gradient(180deg, var(--medium-pink) 0%, var(--light-lilac) 30%, var(--white-unicorn) 60%);
+            color: var(--text-main);
             min-height: 100vh;
         }
         
-        /* --- Cabeçalho - AUMENTO E TEXTO CENTRALIZADO --- */
+        /* --- Cabeçalho --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 40px; /* Padding ajustado para acomodar */
-            background-color: var(--white);
+            padding: 10px 40px;
+            background-color: var(--white-unicorn); /* Fundo branco do cabeçalho */
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         header #logo-rafael {
-            height: 90px; /* AUMENTADO PARA BOA VISUALIZAÇÃO */
-            max-width: 30%; /* Limita para não ficar muito grande em telas largas */
-            object-fit: contain; /* Garante que a imagem se ajuste */
+            height: 90px;
+            max-width: 30%;
+            object-fit: contain;
         }
         #header-title {
-            color: var(--purple);
-            font-size: 1.5em; /* Tamanho médio */
+            color: var(--medium-pink); /* Cor do texto no cabeçalho */
+            font-size: 1.5em;
             font-weight: 700;
             text-align: center;
-            flex-grow: 1; /* Permite que o texto ocupe o espaço central */
-            margin: 0 10px; /* Espaçamento entre logos */
+            flex-grow: 1;
+            margin: 0 10px;
         }
         header #logo-viva {
-            height: 60px; /* Ajustado proporcionalmente */
-            max-width: 30%; /* Limita para não ficar muito grande em telas largas */
+            height: 60px;
+            max-width: 30%;
             object-fit: contain;
-            display: none; /* Escondido por padrão, controlado por JS */
+            display: none;
         }
 
         /* --- Estrutura das Páginas --- */
@@ -80,13 +87,13 @@
             margin-bottom: 30px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
-        .box-purple {
-            background-color: var(--purple);
-            color: var(--text-light);
+        .box-purple { /* Renomeado semanticamente, mas usa a nova cor */
+            background-color: var(--dark-pink-crina); /* Cor escura da nova paleta */
+            color: var(--text-light-alt);
         }
-        .box-white {
-            background-color: var(--white);
-            color: var(--text-dark);
+        .box-white { /* Renomeado semanticamente, mas usa a nova cor */
+            background-color: var(--white-unicorn);
+            color: var(--text-main);
         }
         .box h1, .box h2 {
             margin-top: 0;
@@ -94,13 +101,13 @@
             font-weight: 700;
             text-align: center;
         }
-        .box-purple h1, .box-purple h2 { color: var(--white); }
-        .box-white h1 { color: var(--purple); }
-        .box-white h2 { color: var(--blue); font-size: 1.2em; font-weight: 400;}
+        .box-purple h1, .box-purple h2 { color: var(--text-light-alt); }
+        .box-white h1 { color: var(--medium-pink); } /* Título principal na cor rosa médio */
+        .box-white h2 { color: var(--light-lilac); font-size: 1.2em; font-weight: 400;} /* Subtítulo na cor lilás */
 
         .box h3 {
-            color: var(--purple);
-            border-bottom: 2px solid var(--lilac);
+            color: var(--medium-pink); /* Títulos de seção na cor rosa médio */
+            border-bottom: 2px solid var(--light-lilac); /* Borda na cor lilás */
             padding-bottom: 8px;
             margin-top: 30px;
             margin-bottom: 15px;
@@ -110,7 +117,7 @@
         ul { list-style: none; padding: 0; }
         
         /* Página 1: Apresentação com Vídeo */
-        .box-purple h2 { color: var(--lilac); font-weight: 400; }
+        .box-purple h2 { color: var(--yellow-horn); font-weight: 400; } /* H2 na caixa escura */
         #video-thumbnail {
             position: relative;
             border-radius: 10px;
@@ -136,7 +143,7 @@
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            background-color: var(--dark-purple);
+            background-color: var(--dark-pink-crina); /* Fundo da thumbnail */
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
@@ -187,14 +194,14 @@
             width: auto;
             object-fit: contain;
             aspect-ratio: 16 / 9;
-            background-color: black;
+            background-color: var(--black-hoof); /* Fundo do modal na cor preta */
             border-radius: 10px;
         }
         .close {
             position: absolute;
             top: 15px;
             right: 35px;
-            color: #f1f1f1;
+            color: var(--white-unicorn); /* Cor do X de fechar */
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
@@ -202,7 +209,7 @@
         }
         .close:hover,
         .close:focus {
-            color: #bbb;
+            color: var(--gray-tech); /* Cor ao passar o mouse */
             text-decoration: none;
             cursor: pointer;
         }
@@ -222,11 +229,12 @@
         th, td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
         th { 
             font-weight: 600; 
-            background-color: var(--purple);
-            color: var(--white);
+            background-color: var(--medium-pink); /* Cabeçalho da tabela */
+            color: var(--white-unicorn);
         }
-        #orcamento-table tbody tr:nth-child(odd) { background-color: rgba(106, 48, 147, 0.08); }
-        #orcamento-table tbody tr:nth-child(even) { background-color: rgba(65, 105, 225, 0.08); }
+        /* Linhas pares/ímpares da tabela */
+        #orcamento-table tbody tr:nth-child(odd) { background-color: rgba(240, 107, 174, 0.08); } /* Rosa médio transparente */
+        #orcamento-table tbody tr:nth-child(even) { background-color: rgba(207, 183, 240, 0.08); } /* Lilás transparente */
         
         /* Página 5: Lei */
         #page5 p { text-align: justify; line-height: 1.7; }
@@ -234,13 +242,13 @@
             text-align: center;
             margin-top: 20px;
             padding: 15px;
-            background-color: var(--lilac);
-            color: var(--purple);
+            background-color: var(--light-lilac); /* Rodapé na cor lilás */
+            color: var(--medium-pink); /* Texto do rodapé na cor rosa médio */
             font-weight: 600;
             border-radius: 8px;
         }
         #logo-viva-container {
-            background-color: var(--white);
+            background-color: var(--white-unicorn); /* Fundo do container da logo viva */
             padding: 20px;
             margin: 30px auto 0 auto;
             width: fit-content;
@@ -253,7 +261,7 @@
         nav {
             text-align: center;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 249, 245, 0.9); /* Fundo da navegação */
             border-radius: 50px;
             max-width: 600px;
             margin: 0 auto 40px auto;
@@ -268,29 +276,29 @@
             border-radius: 30px;
             font-size: 1em;
             font-weight: 600;
-            color: var(--blue);
+            color: var(--light-lilac); /* Cor dos botões inativos */
             transition: background-color 0.3s, color 0.3s;
         }
         nav button:hover {
-            background-color: var(--lilac);
+            background-color: var(--light-pink-bg); /* Hover na cor rosa claro */
         }
         nav button.active-nav {
-            background-color: var(--purple);
-            color: white;
+            background-color: var(--medium-pink); /* Botão ativo na cor rosa médio */
+            color: var(--white-unicorn);
         }
 
         /* Responsividade para telas menores */
         @media (max-width: 768px) {
             header { 
                 padding: 10px 15px;
-                flex-wrap: wrap; /* Permite que os itens quebrem linha */
-                justify-content: center; /* Centraliza itens quando quebram */
+                flex-wrap: wrap;
+                justify-content: center;
             }
             header #logo-rafael { height: 60px; max-width: 40%; }
             #header-title { 
                 font-size: 1.2em; 
-                width: 100%; /* Ocupa a largura total */
-                order: 3; /* Coloca o título por último em telas pequenas */
+                width: 100%;
+                order: 3;
                 margin-top: 10px;
             }
             header #logo-viva { height: 45px; max-width: 40%; }
