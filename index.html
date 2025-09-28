@@ -37,10 +37,10 @@
             z-index: 1000;
         }
         header #logo-rafael {
-            height: 60px;
+            height: 50px; /* Altura padrão ajustada */
         }
         header #logo-viva {
-            height: 55px;
+            height: 45px; /* Altura padrão ajustada */
             display: none; /* Escondido por padrão */
         }
 
@@ -233,8 +233,8 @@
 <body>
 
     <header>
-        <img id="rafaellogo" src="rafaellogo.png" alt="Logo Rafael Guimarães">
-        <img id="viva" src="viva.png" alt="Logo Viva Esporte">
+        <img id="logo-rafael" src="rafaellogo.png" alt="Logo Rafael Guimarães">
+        <img id="logo-viva" src="viva.png" alt="Logo Viva Esporte">
     </header>
     
     <nav>
@@ -251,11 +251,11 @@
                 <h1>Rafael Guimarães Oliveira</h1>
                 <h2>14 anos · Colégio Montessoriano · Inspirado pelo campeão Iuki Alves</h2>
                 <div id="video-thumbnail">
-                    <video poster="thumbnail-rafael.jpg" style="width:100%; border-radius: 10px;">
+                    <video poster="thumbnail-rafael.jpg" style="width:100%; border-radius: 10px;" controls>
                         <source src="videorafael.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
                     </video>
-                    <div class="play-icon">▶</div>
-                </div>
+                    <div class="play-icon"></div> </div>
                 <p class="caption">Explore a rotina de treinos e as conquistas que moldam um futuro campeão.</p>
             </div>
         </div>
@@ -382,7 +382,7 @@
                 </div>
                 <footer>Invista no futuro do esporte baiano e fortaleça talentos como Rafael.</footer>
             </div>
-            <div id="viva-container">
+            <div id="logo-viva-container">
                 <img src="viva.png" alt="Logo Viva Esporte">
             </div>
         </div>
