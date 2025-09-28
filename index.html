@@ -37,7 +37,7 @@
             z-index: 1000;
         }
         header #logo-rafael {
-            height: 60px; /* Ajustado para melhor visualização */
+            height: 60px;
         }
         header #logo-viva {
             height: 55px;
@@ -98,11 +98,9 @@
         /* --- Componentes Específicos --- */
         ul { list-style: none; padding: 0; }
         
-        /* Página 1: Apresentação */
         #page1 ul { list-style-type: square; padding-left: 20px; }
         #page1 li { margin-bottom: 10px; }
 
-        /* Página 2: Histórico */
         #page2 li {
             padding: 15px;
             border-bottom: 1px solid #eee;
@@ -118,7 +116,7 @@
             color: var(--purple);
         }
 
-        /* Página 3: Álbum de Fotos */
+        /* Página 3: Álbum de Fotos - ALTERAÇÃO AQUI */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -132,8 +130,10 @@
             cursor: pointer;
         }
         .thumbnail img {
-            width: 100%; height: 150px;
-            object-fit: cover;
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Formato 16:9 */
+            object-fit: cover; /* Preenche o espaço */
+            object-position: center top; /* Garante que o topo da imagem seja preservado */
             display: block;
             transition: transform 0.3s ease;
         }
@@ -151,15 +151,25 @@
         }
         .thumbnail:hover .caption-overlay { opacity: 1; }
 
-        /* Página 4: Projeto */
+        /* Página 4: Projeto - ALTERAÇÃO AQUI */
         .sub-box { margin-bottom: 25px; }
         .sub-box ul { list-style-type: square; padding-left: 20px; }
         .sub-box li { margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { font-weight: 600; }
-        #orcamento-table tbody tr:nth-child(odd) { background-color: rgba(106, 48, 147, 0.1); }
-        #orcamento-table tbody tr:nth-child(even) { background-color: rgba(65, 105, 225, 0.1); }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
+        th { 
+            font-weight: 600; 
+            background-color: var(--purple);
+            color: var(--white);
+        }
+        #orcamento-table tbody tr:nth-child(odd) { background-color: rgba(106, 48, 147, 0.08); }
+        #orcamento-table tbody tr:nth-child(even) { background-color: rgba(65, 105, 225, 0.08); }
         
         /* Página 5: Lei */
         #page5 p { text-align: justify; line-height: 1.7; }
@@ -172,6 +182,16 @@
             font-weight: 600;
             border-radius: 8px;
         }
+        #logo-viva-container {
+            background-color: var(--white);
+            padding: 20px;
+            margin: 30px auto 0 auto;
+            width: fit-content;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #logo-viva-container img { display: block; height: 70px; }
+
 
         /* --- Navegação --- */
         nav {
@@ -202,7 +222,6 @@
             background-color: var(--purple);
             color: white;
         }
-
     </style>
 </head>
 <body>
@@ -225,12 +244,10 @@
             <div class="box box-white">
                 <h1>RAFAEL GUIMARÃES OLIVEIRA</h1>
                 <h2>Atleta de Tênis de Mesa – Categoria SUB-15</h2>
-
                 <h3>HISTÓRICO E TRAJETÓRIA</h3>
                 <p>Nascido em Salvador em 15 de julho de 2011, Rafael Guimarães Oliveira é um jovem talento do tênis de mesa baiano. Aos 14 anos, treina intensamente cinco vezes por semana no Colégio Montessoriano, sob a orientação direta do campeão baiano Iuki Alves, seu grande mentor e inspiração.</p>
                 <p>O início de sua trajetória competitiva já revela um atleta disciplinado, competitivo e em ascensão. Rafael alia treinamento de alto nível, acompanhamento técnico e dedicação escolar, consolidando-se como promessa do esporte na Bahia.</p>
                 <p>O Projeto de Desenvolvimento Esportivo visa dar suporte técnico, físico, psicológico e médico, possibilitando que Rafael alcance resultados expressivos no cenário estadual e nacional.</p>
-                
                 <h3>TÍTULOS E RESULTADOS CONQUISTADOS</h3>
                 <ul>
                     <li><b>Campeonato Baiano SUB-15:</b> Participação em 4 etapas e 2 medalhas conquistadas.</li>
@@ -239,7 +256,6 @@
                     <li><b>FEEPS – Festival Esportivo das Escolas Privadas:</b> 2 edições disputadas e 2 medalhas de prata.</li>
                 </ul>
                 <p><i>Com regularidade e consistência, Rafael sobe ao pódio na maioria dos torneios que disputa, o que confirma seu potencial competitivo.</i></p>
-
                 <h3>METAS ESPORTIVAS 2026</h3>
                 <ul>
                     <li>Estar entre os 3 melhores atletas do ranking estadual SUB-15.</li>
@@ -247,7 +263,6 @@
                     <li>Participar de 12 competições oficiais ao longo da temporada.</li>
                     <li>Evoluir nos aspectos técnicos, táticos e emocionais.</li>
                 </ul>
-
                 <h3>IMPACTO SOCIAL E INSPIRAÇÃO</h3>
                 <p>A trajetória de Rafael vai além das mesas de jogo. Como jovem atleta baiano, ele representa inspiração para estudantes e praticantes do esporte, especialmente em escolas públicas de Salvador. O projeto prevê ações de promoção esportiva em comunidades, levando o tênis de mesa como ferramenta de transformação social, disciplina e oportunidade.</p>
                 <p>O investimento em Rafael é o fortalecimento de uma nova geração de atletas capazes de elevar o nome da Bahia no cenário nacional do tênis de mesa.</p>
@@ -302,13 +317,16 @@
                     </ul>
                 </div>
                 <div class="sub-box">
-                    <h3>Cronograma de Competições (preliminar)</h3>
+                    <h3>Cronograma de Competições (Estimativa)</h3>
                     <table>
                         <thead><tr><th>Mês</th><th>Evento</th><th>Local</th></tr></thead>
                         <tbody>
                             <tr><td>Fev</td><td>Campeonato Baiano - Etapa 1</td><td>Salvador-BA</td></tr>
-                            <tr><td>Abr</td><td>Copa Brasil - Sudeste</td><td>A definir</td></tr>
-                            </tbody>
+                            <tr><td>Abr</td><td>Copa Brasil - Edição Sudeste</td><td>Rio de Janeiro-RJ</td></tr>
+                            <tr><td>Jun</td><td>Campeonato Baiano - Etapa 2</td><td>Lauro de Freitas-BA</td></tr>
+                            <tr><td>Set</td><td>Copa Brasil - Edição Nordeste</td><td>Recife-PE</td></tr>
+                            <tr><td>Dez</td><td>Campeonato Baiano - Finais</td><td>Salvador-BA</td></tr>
+                        </tbody>
                     </table>
                 </div>
                 <div class="sub-box">
@@ -335,9 +353,31 @@
         <div id="page5" class="page">
             <div class="box box-white">
                 <h2>Programa Viva Esporte – Incentivo Fiscal</h2>
-                <p>O programa <strong>Viva Esporte</strong>, instituído pela Lei Municipal nº 9.738/2023 e regulamentado pelo Decreto nº 37.766/2023, representa uma oportunidade única para empresas soteropolitanas investirem no esporte. A legislação permite que contribuintes do ISS destinem até 20% do imposto devido para apoiar projetos esportivos, com um incentivo fiscal que pode chegar a 100% do valor investido.</p>
-                <p>Para atletas da categoria SUB-15, como Rafael, que se encontram no top 3 do ranking estadual, o teto de captação é de R$ 40.000,00. Os requisitos obrigatórios incluem domicílio em Salvador, posse da Carteira Municipal do Atleta e registro em uma federação validada pelo Conselho Municipal de Esporte e Lazer (COMELS).</p>
+                <p>O programa <strong>Viva Esporte</strong>, instituído pela Lei Municipal nº 9.738/2023, representa uma oportunidade para empresas soteropolitanas investirem no esporte. A legislação permite que contribuintes do ISS destinem até 20% do imposto devido para apoiar projetos, com um incentivo fiscal que pode chegar a 100% do valor investido.</p>
+                <div class="sub-box">
+                    <h3>Simulação de Incentivo Fiscal - ISS</h3>
+                    <p>Empresas que pagam ISS em Salvador podem destinar até <strong>20% do valor anual do imposto devido</strong> para apoiar projetos esportivos aprovados.</p>
+                     <table>
+                        <thead>
+                          <tr>
+                            <th>Valor ISS pago/ano (R$)</th>
+                            <th>20% para o esporte (R$)</th>
+                            <th>Aporte mensal máx. (R$)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>100.000</td><td>20.000</td><td>1.666,67</td></tr>
+                          <tr><td>200.000</td><td>40.000</td><td>3.333,33</td></tr>
+                          <tr><td>500.000</td><td>100.000</td><td>8.333,33</td></tr>
+                          <tr><td>1.000.000</td><td>200.000</td><td>16.666,67</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.9em; font-style: italic; text-align: center; margin-top: 15px;">O incentivo não se aplica a empresas do Simples Nacional.</p>
+                </div>
                 <footer>Invista no futuro do esporte baiano e fortaleça talentos como Rafael.</footer>
+            </div>
+            <div id="logo-viva-container">
+                <img src="logo-vivaesporte.png" alt="Logo Viva Esporte">
             </div>
         </div>
     </div>
@@ -346,15 +386,12 @@
         const logoViva = document.getElementById('logo-viva');
         
         function showPage(pageNumber) {
-            // Gerencia a troca de páginas ativas
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById('page' + pageNumber).classList.add('active');
 
-            // Gerencia o botão ativo na navegação
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-nav'));
             document.querySelector('nav button:nth-child(' + pageNumber + ')').classList.add('active-nav');
             
-            // Exibe ou esconde o logo Viva Esporte
             logoViva.style.display = (pageNumber === 5) ? 'block' : 'none';
         }
     </script>
