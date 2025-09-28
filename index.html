@@ -98,25 +98,32 @@
         /* --- Componentes Específicos --- */
         ul { list-style: none; padding: 0; }
         
-        #page1 ul { list-style-type: square; padding-left: 20px; }
-        #page1 li { margin-bottom: 10px; }
-
-        #page2 li {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            font-size: 1.1em;
+        /* Página 1: Apresentação com Vídeo */
+        .box-purple h2 { color: var(--lilac); font-weight: 400; }
+        #video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
         }
-        #page2 li:last-child { border-bottom: none; }
-        #page2 footer {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid var(--lilac);
-            font-weight: 600;
-            color: var(--purple);
+        #video-thumbnail img { display: block; width: 100%; }
+        #video-thumbnail .play-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.85);
+            transition: transform 0.2s ease;
         }
+        #video-thumbnail:hover .play-icon { transform: translate(-50%, -50%) scale(1.1); }
+        .caption { text-align: center; font-style: italic; opacity: 0.9; }
 
-        /* Página 3: Álbum de Fotos - ALTERAÇÃO AQUI */
+        /* Página 2: Histórico Detalhado */
+        #page2 ul { list-style-type: square; padding-left: 20px; }
+        #page2 li { margin-bottom: 10px; }
+
+        /* Página 3: Álbum de Fotos */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -131,9 +138,9 @@
         }
         .thumbnail img {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Formato 16:9 */
-            object-fit: cover; /* Preenche o espaço */
-            object-position: center top; /* Garante que o topo da imagem seja preservado */
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center top;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -151,7 +158,7 @@
         }
         .thumbnail:hover .caption-overlay { opacity: 1; }
 
-        /* Página 4: Projeto - ALTERAÇÃO AQUI */
+        /* Página 4: Projeto */
         .sub-box { margin-bottom: 25px; }
         .sub-box ul { list-style-type: square; padding-left: 20px; }
         .sub-box li { margin-bottom: 10px; }
@@ -191,7 +198,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         #logo-viva-container img { display: block; height: 70px; }
-
 
         /* --- Navegação --- */
         nav {
@@ -241,6 +247,20 @@
 
     <div class="page-container">
         <div id="page1" class="page active">
+            <div class="box box-purple" style="text-align: center;">
+                <h1>Rafael Guimarães Oliveira</h1>
+                <h2>14 anos · Colégio Montessoriano · Inspirado pelo campeão Iuki Alves</h2>
+                <div id="video-thumbnail">
+                    <video poster="thumbnail-rafael.jpg" style="width:100%; border-radius: 10px;">
+                        <source src="videorafael.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon">▶</div>
+                </div>
+                <p class="caption">Explore a rotina de treinos e as conquistas que moldam um futuro campeão.</p>
+            </div>
+        </div>
+
+        <div id="page2" class="page">
             <div class="box box-white">
                 <h1>RAFAEL GUIMARÃES OLIVEIRA</h1>
                 <h2>Atleta de Tênis de Mesa – Categoria SUB-15</h2>
@@ -266,20 +286,6 @@
                 <h3>IMPACTO SOCIAL E INSPIRAÇÃO</h3>
                 <p>A trajetória de Rafael vai além das mesas de jogo. Como jovem atleta baiano, ele representa inspiração para estudantes e praticantes do esporte, especialmente em escolas públicas de Salvador. O projeto prevê ações de promoção esportiva em comunidades, levando o tênis de mesa como ferramenta de transformação social, disciplina e oportunidade.</p>
                 <p>O investimento em Rafael é o fortalecimento de uma nova geração de atletas capazes de elevar o nome da Bahia no cenário nacional do tênis de mesa.</p>
-            </div>
-        </div>
-
-        <div id="page2" class="page">
-            <div class="box box-white">
-                <h2>Trajetória e Conquistas</h2>
-                <ul>
-                    <li>Participação em 4 etapas do Campeonato Baiano SUB-15, destacando-se com 2 pódios conquistados.</li>
-                    <li>Presença em 2 edições dos Jogos Internos Montessoriano, resultando em medalhas de prata pela performance estratégica.</li>
-                    <li>Disputa de 4 torneios ETMPAN, garantindo 3 medalhas de bronze pela sua consistência defensiva.</li>
-                    <li>Atuação em 2 edições do FEEPS, com 2 medalhas de prata que refletem sua notável evolução tática.</li>
-                    <li>Conquista de 2 medalhas no Campeonato Baiano SUB-15, evidenciando sua força mental em partidas decisivas.</li>
-                </ul>
-                <footer>Disciplina diária e foco no aprimoramento técnico.</footer>
             </div>
         </div>
 
