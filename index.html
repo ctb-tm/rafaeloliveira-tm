@@ -111,14 +111,23 @@
         
         /* Página 1: Apresentação com Vídeo */
         .box-purple h2 { color: var(--lilac); font-weight: 400; }
-        #video-thumbnail {
+        #video-container { /* Novo container para o vídeo */
             position: relative;
-            border-radius: 10px;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 (altura / largura * 100%) */
+            height: 0;
             overflow: hidden;
+            border-radius: 10px;
             margin: 20px 0;
         }
-        #video-thumbnail video {
-            display: block; width: 100%; border-radius: 10px;
+        #video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            display: block;
         }
         .caption { text-align: center; font-style: italic; opacity: 0.9; }
 
@@ -283,14 +292,14 @@
         @media (max-width: 768px) {
             header { 
                 padding: 10px 15px;
-                flex-wrap: wrap; /* Permite que os itens quebrem linha */
-                justify-content: center; /* Centraliza itens quando quebram */
+                flex-wrap: wrap;
+                justify-content: center;
             }
             header #logo-rafael { height: 60px; max-width: 40%; }
             #header-title { 
                 font-size: 1.2em; 
-                width: 100%; /* Ocupa a largura total */
-                order: 3; /* Coloca o título por último em telas pequenas */
+                width: 100%;
+                order: 3;
                 margin-top: 10px;
             }
             header #logo-viva { height: 45px; max-width: 40%; }
@@ -328,8 +337,7 @@
             <div class="box box-purple" style="text-align: center;">
                 <h1>Rafael Guimarães Oliveira</h1>
                 <h2>14 anos · Colégio Montessoriano · Inspirado pelo campeão Iuki Alves</h2>
-                <div id="video-thumbnail">
-                    <video poster="thumbnail-rafael.jpg" style="width:100%; border-radius: 10px;" controls>
+                <div id="video-container"> <video poster="thumbnail-rafael.jpg" preload="metadata" controls>
                         <source src="videorafael.mp4" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
@@ -348,10 +356,10 @@
                 <p>O Projeto de Desenvolvimento Esportivo visa dar suporte técnico, físico, psicológico e médico, possibilitando que Rafael alcance resultados expressivos no cenário estadual e nacional.</p>
                 <h3>TÍTULOS E RESULTADOS CONQUISTADOS</h3>
                 <ul>
-                    <li><b>Campeonato Baiano SUB-15:</b> Participação em 5 etapas e 3 medalhas conquistadas.</li>
-                    <li><b>Jogos Internos Montessorianos:</b> 2 participações como segundo colocado.</li>
+                    <li><b>Campeonato Baiano SUB-15:</b> Participação em 4 etapas e 2 medalhas conquistadas.</li>
+                    <li><b>Jogos Internos Montessorianos:</b> 2 participações com resultados expressivos.</li>
                     <li><b>Torneios ETMPAN (Circuito Regional):</b> 4 participações e 3 medalhas de bronze.</li>
-                    <li><b>FEEPS – Festival Esportivo das Escolas Privadas:</b> 2 edições disputadas entre os 8 colocados.</li>
+                    <li><b>FEEPS – Festival Esportivo das Escolas Privadas:</b> 2 edições disputadas e 2 medalhas de prata.</li>
                 </ul>
                 <p><i>Com regularidade e consistência, Rafael sobe ao pódio na maioria dos torneios que disputa, o que confirma seu potencial competitivo.</i></p>
                 <h3>METAS ESPORTIVAS 2026</h3>
@@ -397,7 +405,7 @@
                         <li>Atingir e manter-se no top 3 do ranking baiano SUB-15, validado oficialmente pela FTMBA.</li>
                         <li>Realizar 5 treinos semanais em centro de alto desempenho, incluindo análise de vídeo e feedback técnico personalizado.</li>
                         <li>Contar com suporte de uma equipe multidisciplinar, composta por nutricionista esportivo, fisioterapeuta e psicólogo.</li>
-                        <li>Promover 2 oficinas de iniciação ao tênis de mesa em escolas públicas, impactando positivamente cerca de 200 jovens.</li>
+                        <li>Promover 4 oficinas de iniciação ao tênis de mesa em escolas públicas, impactando positivamente cerca de 200 jovens.</li>
                     </ul>
                 </div>
                 <div class="sub-box">
