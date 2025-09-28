@@ -5,61 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infográfico | Rafael Guimarães Oliveira</title>
     <style>
-        /* --- Configurações Globais e Gradiente - NOVAS CORES AQUI --- */
+        /* --- Configurações Globais e Gradiente --- */
         :root {
-            --light-pink-bg: #EFC7CF; /* Rosa Claro (Fundo) */
-            --white-unicorn: #FFF9F5; /* Branco (Unicórnio) */
-            --medium-pink: #F06BAE;   /* Rosa Médio (Casaco/Crina) */
-            --light-lilac: #CFB7F0;   /* Lilás Claro (Poltrona) */
-            --yellow-horn: #FFED96;   /* Amarelo (Chifre) */
-            --gray-tech: #B0B0B0;     /* Cinza (Notebook/Fones) */
-            --black-hoof: #222222;    /* Preto (Casco) */
-            --dark-pink-crina: #D94F99; /* Rosa Escuro (Crina) */
-
-            /* Ajuste para cores de texto/elementos que eram escuras/claras */
-            --text-main: var(--black-hoof); /* Texto principal mais escuro */
-            --text-accent: var(--medium-pink); /* Cor de destaque para títulos */
-            --text-light-alt: var(--white-unicorn); /* Texto claro sobre fundos escuros */
+            --purple: #6a3093;
+            --blue: #a044ff;
+            --lilac: #e3d2ff;
+            --white: #ffffff;
+            --dark-purple: #4c226a;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
         }
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            /* Gradiente de fundo ajustado para a nova paleta */
-            background: linear-gradient(180deg, var(--medium-pink) 0%, var(--light-lilac) 30%, var(--white-unicorn) 60%);
-            color: var(--text-main);
+            background: linear-gradient(180deg, var(--purple) 0%, var(--blue) 30%, var(--white) 60%);
+            color: var(--text-dark);
             min-height: 100vh;
         }
         
-        /* --- Cabeçalho --- */
+        /* --- Cabeçalho - AUMENTO E TEXTO CENTRALIZADO --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 40px;
-            background-color: var(--white-unicorn); /* Fundo branco do cabeçalho */
+            padding: 10px 40px; /* Padding ajustado para acomodar */
+            background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         header #logo-rafael {
-            height: 90px;
-            max-width: 30%;
-            object-fit: contain;
+            height: 90px; /* AUMENTADO PARA BOA VISUALIZAÇÃO */
+            max-width: 30%; /* Limita para não ficar muito grande em telas largas */
+            object-fit: contain; /* Garante que a imagem se ajuste */
         }
         #header-title {
-            color: var(--medium-pink); /* Cor do texto no cabeçalho */
-            font-size: 1.5em;
+            color: var(--purple);
+            font-size: 1.5em; /* Tamanho médio */
             font-weight: 700;
             text-align: center;
-            flex-grow: 1;
-            margin: 0 10px;
+            flex-grow: 1; /* Permite que o texto ocupe o espaço central */
+            margin: 0 10px; /* Espaçamento entre logos */
         }
         header #logo-viva {
-            height: 60px;
-            max-width: 30%;
+            height: 60px; /* Ajustado proporcionalmente */
+            max-width: 30%; /* Limita para não ficar muito grande em telas largas */
             object-fit: contain;
-            display: none;
+            display: none; /* Escondido por padrão, controlado por JS */
         }
 
         /* --- Estrutura das Páginas --- */
@@ -87,13 +80,13 @@
             margin-bottom: 30px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
-        .box-purple { /* Renomeado semanticamente, mas usa a nova cor */
-            background-color: var(--dark-pink-crina); /* Cor escura da nova paleta */
-            color: var(--text-light-alt);
+        .box-purple {
+            background-color: var(--purple);
+            color: var(--text-light);
         }
-        .box-white { /* Renomeado semanticamente, mas usa a nova cor */
-            background-color: var(--white-unicorn);
-            color: var(--text-main);
+        .box-white {
+            background-color: var(--white);
+            color: var(--text-dark);
         }
         .box h1, .box h2 {
             margin-top: 0;
@@ -101,13 +94,13 @@
             font-weight: 700;
             text-align: center;
         }
-        .box-purple h1, .box-purple h2 { color: var(--text-light-alt); }
-        .box-white h1 { color: var(--medium-pink); } /* Título principal na cor rosa médio */
-        .box-white h2 { color: var(--light-lilac); font-size: 1.2em; font-weight: 400;} /* Subtítulo na cor lilás */
+        .box-purple h1, .box-purple h2 { color: var(--white); }
+        .box-white h1 { color: var(--purple); }
+        .box-white h2 { color: var(--blue); font-size: 1.2em; font-weight: 400;}
 
         .box h3 {
-            color: var(--medium-pink); /* Títulos de seção na cor rosa médio */
-            border-bottom: 2px solid var(--light-lilac); /* Borda na cor lilás */
+            color: var(--purple);
+            border-bottom: 2px solid var(--lilac);
             padding-bottom: 8px;
             margin-top: 30px;
             margin-bottom: 15px;
@@ -117,7 +110,7 @@
         ul { list-style: none; padding: 0; }
         
         /* Página 1: Apresentação com Vídeo */
-        .box-purple h2 { color: var(--yellow-horn); font-weight: 400; } /* H2 na caixa escura */
+        .box-purple h2 { color: var(--lilac); font-weight: 400; }
         #video-thumbnail {
             position: relative;
             border-radius: 10px;
@@ -143,7 +136,7 @@
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            background-color: var(--dark-pink-crina); /* Fundo da thumbnail */
+            background-color: var(--dark-purple);
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
@@ -194,14 +187,14 @@
             width: auto;
             object-fit: contain;
             aspect-ratio: 16 / 9;
-            background-color: var(--black-hoof); /* Fundo do modal na cor preta */
+            background-color: black;
             border-radius: 10px;
         }
         .close {
             position: absolute;
             top: 15px;
             right: 35px;
-            color: var(--white-unicorn); /* Cor do X de fechar */
+            color: #f1f1f1;
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
@@ -209,7 +202,7 @@
         }
         .close:hover,
         .close:focus {
-            color: var(--gray-tech); /* Cor ao passar o mouse */
+            color: #bbb;
             text-decoration: none;
             cursor: pointer;
         }
@@ -229,12 +222,11 @@
         th, td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
         th { 
             font-weight: 600; 
-            background-color: var(--medium-pink); /* Cabeçalho da tabela */
-            color: var(--white-unicorn);
+            background-color: var(--purple);
+            color: var(--white);
         }
-        /* Linhas pares/ímpares da tabela */
-        #orcamento-table tbody tr:nth-child(odd) { background-color: rgba(240, 107, 174, 0.08); } /* Rosa médio transparente */
-        #orcamento-table tbody tr:nth-child(even) { background-color: rgba(207, 183, 240, 0.08); } /* Lilás transparente */
+        #orcamento-table tbody tr:nth-child(odd) { background-color: rgba(106, 48, 147, 0.08); }
+        #orcamento-table tbody tr:nth-child(even) { background-color: rgba(65, 105, 225, 0.08); }
         
         /* Página 5: Lei */
         #page5 p { text-align: justify; line-height: 1.7; }
@@ -242,13 +234,13 @@
             text-align: center;
             margin-top: 20px;
             padding: 15px;
-            background-color: var(--light-lilac); /* Rodapé na cor lilás */
-            color: var(--medium-pink); /* Texto do rodapé na cor rosa médio */
+            background-color: var(--lilac);
+            color: var(--purple);
             font-weight: 600;
             border-radius: 8px;
         }
         #logo-viva-container {
-            background-color: var(--white-unicorn); /* Fundo do container da logo viva */
+            background-color: var(--white);
             padding: 20px;
             margin: 30px auto 0 auto;
             width: fit-content;
@@ -261,7 +253,7 @@
         nav {
             text-align: center;
             padding: 10px;
-            background-color: rgba(255, 249, 245, 0.9); /* Fundo da navegação */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 50px;
             max-width: 600px;
             margin: 0 auto 40px auto;
@@ -276,29 +268,29 @@
             border-radius: 30px;
             font-size: 1em;
             font-weight: 600;
-            color: var(--light-lilac); /* Cor dos botões inativos */
+            color: var(--blue);
             transition: background-color 0.3s, color 0.3s;
         }
         nav button:hover {
-            background-color: var(--light-pink-bg); /* Hover na cor rosa claro */
+            background-color: var(--lilac);
         }
         nav button.active-nav {
-            background-color: var(--medium-pink); /* Botão ativo na cor rosa médio */
-            color: var(--white-unicorn);
+            background-color: var(--purple);
+            color: white;
         }
 
         /* Responsividade para telas menores */
         @media (max-width: 768px) {
             header { 
                 padding: 10px 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-wrap: wrap; /* Permite que os itens quebrem linha */
+                justify-content: center; /* Centraliza itens quando quebram */
             }
             header #logo-rafael { height: 60px; max-width: 40%; }
             #header-title { 
                 font-size: 1.2em; 
-                width: 100%;
-                order: 3;
+                width: 100%; /* Ocupa a largura total */
+                order: 3; /* Coloca o título por último em telas pequenas */
                 margin-top: 10px;
             }
             header #logo-viva { height: 45px; max-width: 40%; }
@@ -337,7 +329,7 @@
                 <h1>Rafael Guimarães Oliveira</h1>
                 <h2>14 anos · Colégio Montessoriano · Inspirado pelo campeão Iuki Alves</h2>
                 <div id="video-thumbnail">
-                    <video poster="thumbnail-rafael-custom.png" style="width:100%; border-radius: 10px;" controls>
+                    <video poster="thumbnail-rafael.jpg" style="width:100%; border-radius: 10px;" controls>
                         <source src="videorafael.mp4" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
@@ -356,10 +348,10 @@
                 <p>O Projeto de Desenvolvimento Esportivo visa dar suporte técnico, físico, psicológico e médico, possibilitando que Rafael alcance resultados expressivos no cenário estadual e nacional.</p>
                 <h3>TÍTULOS E RESULTADOS CONQUISTADOS</h3>
                 <ul>
-                    <li><b>Campeonato Baiano SUB-15:</b> Participação em 4 etapas e 2 medalhas conquistadas.</li>
-                    <li><b>Jogos Internos Montessorianos:</b> 2 participações com resultados expressivos.</li>
+                    <li><b>Campeonato Baiano SUB-15:</b> Participação em 5 etapas e 2 medalhas conquistadas.</li>
+                    <li><b>Jogos Internos Montessorianos:</b> 2 participações como segundo colocado.</li>
                     <li><b>Torneios ETMPAN (Circuito Regional):</b> 4 participações e 3 medalhas de bronze.</li>
-                    <li><b>FEEPS – Festival Esportivo das Escolas Privadas:</b> 2 edições disputadas e 2 medalhas de prata.</li>
+                    <li><b>FEEPS – Festival Esportivo das Escolas Privadas:</b> 2 edições disputadas entre os 8 colocados.</li>
                 </ul>
                 <p><i>Com regularidade e consistência, Rafael sobe ao pódio na maioria dos torneios que disputa, o que confirma seu potencial competitivo.</i></p>
                 <h3>METAS ESPORTIVAS 2026</h3>
@@ -405,7 +397,7 @@
                         <li>Atingir e manter-se no top 3 do ranking baiano SUB-15, validado oficialmente pela FTMBA.</li>
                         <li>Realizar 5 treinos semanais em centro de alto desempenho, incluindo análise de vídeo e feedback técnico personalizado.</li>
                         <li>Contar com suporte de uma equipe multidisciplinar, composta por nutricionista esportivo, fisioterapeuta e psicólogo.</li>
-                        <li>Promover 4 oficinas de iniciação ao tênis de mesa em escolas públicas, impactando positivamente cerca de 200 jovens.</li>
+                        <li>Promover 2 oficinas de iniciação ao tênis de mesa em escolas públicas, impactando positivamente cerca de 200 jovens.</li>
                     </ul>
                 </div>
                 <div class="sub-box">
