@@ -23,24 +23,23 @@
             min-height: 100vh;
         }
         
-        /* --- Cabeçalho --- */
+        /* --- Cabeçalho - MELHORIA AQUI --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #ddd;
+            padding: 15px 40px; /* Padding ajustado */
+            background-color: var(--white); /* Fundo branco */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Sombra mais suave */
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         header #logo-rafael {
-            height: 50px; /* Altura padrão ajustada */
+            height: 55px; /* Altura padrão ajustada */
         }
         header #logo-viva {
-            height: 45px; /* Altura padrão ajustada */
+            height: 50px; /* Altura padrão ajustada */
             display: none; /* Escondido por padrão */
         }
 
@@ -102,31 +101,23 @@
         .box-purple h2 { color: var(--lilac); font-weight: 400; }
         #video-thumbnail {
             position: relative;
-            cursor: pointer;
             border-radius: 10px;
             overflow: hidden;
             margin: 20px 0;
         }
-        #video-thumbnail img { display: block; width: 100%; }
-        #video-thumbnail .play-icon {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 80px;
-            color: rgba(255, 255, 255, 0.85);
-            transition: transform 0.2s ease;
+        #video-thumbnail video {
+            display: block; width: 100%; border-radius: 10px;
         }
-        #video-thumbnail:hover .play-icon { transform: translate(-50%, -50%) scale(1.1); }
         .caption { text-align: center; font-style: italic; opacity: 0.9; }
 
         /* Página 2: Histórico Detalhado */
         #page2 ul { list-style-type: square; padding-left: 20px; }
         #page2 li { margin-bottom: 10px; }
 
-        /* Página 3: Álbum de Fotos */
+        /* Página 3: Álbum de Fotos - ALTERAÇÃO AQUI */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adaptável */
             gap: 15px;
         }
         .thumbnail {
@@ -135,12 +126,13 @@
             overflow: hidden;
             background-color: var(--dark-purple);
             cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .thumbnail img {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            object-position: center top;
+            aspect-ratio: 16 / 9; /* Formato 16:9 */
+            object-fit: cover; /* Preenche o espaço */
+            object-position: center top; /* Garante que o topo da imagem seja preservado */
             display: block;
             transition: transform 0.3s ease;
         }
@@ -158,7 +150,49 @@
         }
         .thumbnail:hover .caption-overlay { opacity: 1; }
 
-        /* Página 4: Projeto */
+        /* Modal de Imagem - NOVO ESTILO */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Fica por cima de tudo */
+            z-index: 1001; /* Z-index alto para cobrir tudo */
+            padding-top: 60px; /* Posição do conteúdo */
+            left: 0;
+            top: 0;
+            width: 100%; /* Largura total */
+            height: 100%; /* Altura total */
+            overflow: auto; /* Habilita scroll se necessário */
+            background-color: rgba(0,0,0,0.9); /* Fundo preto semi-transparente */
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+        .modal-content.img-16-9 {
+            aspect-ratio: 16 / 9;
+            object-fit: contain; /* Garante que a imagem se ajuste dentro do 16:9 */
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Página 4: Projeto - CRONOGRAMA ALTERADO AQUI */
         .sub-box { margin-bottom: 25px; }
         .sub-box ul { list-style-type: square; padding-left: 20px; }
         .sub-box li { margin-bottom: 10px; }
@@ -168,6 +202,7 @@
             border: 1px solid #eee;
             border-radius: 8px;
             overflow: hidden;
+            margin-top: 15px;
         }
         th, td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
         th { 
@@ -228,6 +263,17 @@
             background-color: var(--purple);
             color: white;
         }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            nav { max-width: 90%; margin: 0 auto 30px auto; }
+            nav button { padding: 10px 15px; font-size: 0.9em; margin: 0 3px; }
+            .page-container { margin: 20px auto; padding: 0 10px; }
+            .box { padding: 20px; }
+            .photo-gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .modal-content { width: 95%; }
+        }
     </style>
 </head>
 <body>
@@ -255,7 +301,7 @@
                         <source src="videorafael.mp4" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
-                    <div class="play-icon"></div> </div>
+                </div>
                 <p class="caption">Explore a rotina de treinos e as conquistas que moldam um futuro campeão.</p>
             </div>
         </div>
@@ -293,14 +339,14 @@
             <div class="box box-purple">
                 <h2>Momentos de Destaque</h2>
                 <div class="photo-gallery">
-                    <div class="thumbnail"><img src="rafael1.jpg" alt="Foto de Rafael 1"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael2.jpg" alt="Foto de Rafael 2"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael3.jpg" alt="Foto de Rafael 3"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael4.jpg" alt="Foto de Rafael 4"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael5.jpg" alt="Foto de Rafael 5"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael6.jpg" alt="Foto de Rafael 6"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael7.jpg" alt="Foto de Rafael 7"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
-                    <div class="thumbnail"><img src="rafael8.jpg" alt="Foto de Rafael 8"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael1.jpg')"><img src="rafael1.jpg" alt="Foto de Rafael 1"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael2.jpg')"><img src="rafael2.jpg" alt="Foto de Rafael 2"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael3.jpg')"><img src="rafael3.jpg" alt="Foto de Rafael 3"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael4.jpg')"><img src="rafael4.jpg" alt="Foto de Rafael 4"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael5.jpg')"><img src="rafael5.jpg" alt="Foto de Rafael 5"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael6.jpg')"><img src="rafael6.jpg" alt="Foto de Rafael 6"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael7.jpg')"><img src="rafael7.jpg" alt="Foto de Rafael 7"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
+                    <div class="thumbnail" onclick="openModal('rafael8.jpg')"><img src="rafael8.jpg" alt="Foto de Rafael 8"><div class="caption-overlay">Clique para ampliar e sentir a energia da quadra</div></div>
                 </div>
             </div>
         </div>
@@ -323,15 +369,22 @@
                     </ul>
                 </div>
                 <div class="sub-box">
-                    <h3>Cronograma de Competições (Estimativa)</h3>
+                    <h3>Cronograma de Competições (12 Eventos)</h3>
                     <table>
                         <thead><tr><th>Mês</th><th>Evento</th><th>Local</th></tr></thead>
                         <tbody>
                             <tr><td>Fev</td><td>Campeonato Baiano - Etapa 1</td><td>Salvador-BA</td></tr>
-                            <tr><td>Abr</td><td>Copa Brasil - Edição Sudeste</td><td>Rio de Janeiro-RJ</td></tr>
-                            <tr><td>Jun</td><td>Campeonato Baiano - Etapa 2</td><td>Lauro de Freitas-BA</td></tr>
-                            <tr><td>Set</td><td>Copa Brasil - Edição Nordeste</td><td>Recife-PE</td></tr>
+                            <tr><td>Mar</td><td>Copa Brasil - Edição Norte/Nordeste</td><td>Fortaleza-CE</td></tr>
+                            <tr><td>Abr</td><td>Copa Brasil - Edição Centro-Oeste</td><td>Brasília-DF</td></tr>
+                            <tr><td>Mai</td><td>Campeonato Baiano - Etapa 2</td><td>Feira de Santana-BA</td></tr>
+                            <tr><td>Jun</td><td>Copa Brasil - Edição Sudeste</td><td>São Paulo-SP</td></tr>
+                            <tr><td>Jul</td><td>Campeonato Baiano - Etapa 3</td><td>Vitória da Conquista-BA</td></tr>
+                            <tr><td>Ago</td><td>Campeonato Brasileiro Interclubes</td><td>A definir</td></tr>
+                            <tr><td>Set</td><td>Copa Brasil - Edição Sul</td><td>Florianópolis-SC</td></tr>
+                            <tr><td>Out</td><td>Campeonato Baiano - Etapa 4</td><td>Salvador-BA</td></tr>
+                            <tr><td>Nov</td><td>Open Internacional de Tênis de Mesa</td><td>A definir</td></tr>
                             <tr><td>Dez</td><td>Campeonato Baiano - Finais</td><td>Salvador-BA</td></tr>
+                            <tr><td>Dez</td><td>Troféu Brasil de Tênis de Mesa</td><td>A definir</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -388,8 +441,15 @@
         </div>
     </div>
 
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content img-16-9" id="img01">
+    </div>
+
     <script>
         const logoViva = document.getElementById('logo-viva');
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
         
         function showPage(pageNumber) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
@@ -399,6 +459,22 @@
             document.querySelector('nav button:nth-child(' + pageNumber + ')').classList.add('active-nav');
             
             logoViva.style.display = (pageNumber === 5) ? 'block' : 'none';
+        }
+
+        function openModal(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Fecha o modal ao clicar fora da imagem
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
